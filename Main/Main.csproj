@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StreetFighter\StreetFighter.csproj">
+      <Project>{bc6ab598-b71d-48b0-8a42-70da9d288010}</Project>
+      <Name>StreetFighter</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
