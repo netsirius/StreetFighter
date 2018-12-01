@@ -6,12 +6,36 @@ using System.Threading.Tasks;
 
 namespace StreetFighter
 {
-    class Match
+    public class Match
     {
-        public int MatchId { get; private set; }
-        public int CityId { get; private set; }
-        public int PlayerOneId { get; private set; }
-        public int PlayerTwoId { get; private set; }
-        public string Winner { get; private set; }
+        public int MatchId { get; set; }
+        public int CityId { get; set; }
+        public int PlayerOneId { get; set; }
+        public int PlayerTwoId { get; set; }
+        public string Winner { get; set; }
+
+        public Match(int matchId, int cityId, int playerOneId, int playerTwoId, string winner)
+        {
+            MatchId = matchId;
+            CityId = cityId;
+            PlayerOneId = playerOneId;
+            PlayerTwoId = playerTwoId;
+            Winner = winner;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
