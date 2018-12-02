@@ -15,6 +15,10 @@ namespace Main
             List<Player> players = ReadPlayersFromCsv("../../../Data/players.csv");
             List<City> cities = ReadCitiesFromCsv("../../../Data/cities.csv");
             List<Match> matches = ReadMatchesFromCsv("../../../Data/games.csv");
+
+            StreetFighterResult results = new StreetFighterResult(players, cities, matches);
+            results.CityWithMoreMatches();
+            Console.ReadLine();
         }
 
         private static List<Player> ReadPlayersFromCsv(string csvPath)
@@ -52,7 +56,7 @@ namespace Main
             while (!reader.EndOfStream)
             {
                 var line = reader.ReadLine().Split(';');
-                matches.Add(new Match(int.Parse(line[0]), int.Parse(line[0]), int.Parse(line[0]), int.Parse(line[0]), line[4]));
+                matches.Add(new Match(int.Parse(line[0]), int.Parse(line[1]), int.Parse(line[2]), int.Parse(line[3]), line[4]));
             }
             return matches;
         }
