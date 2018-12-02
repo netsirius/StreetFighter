@@ -51,5 +51,34 @@ namespace Main
             Console.WriteLine("CityInfo -> Id: {0} Name: {1} with {2} matches", cityWithMoreMatches.CityId, cityWithMoreMatches.CityName,
                 cityWithMoreMatches.Matches);
         }
+
+        // Count and group matches by city where the match result is a draw and print the cities info.
+        public void CitiesWithMoreDrawMatches()
+        {
+            var citiesWithMoreDrawMatches = from match in matchesList
+                                       join city in citiesList
+                                       on match.CityId equals city.Id
+                                       where match.Winner.Equals("Draw")
+                                       group match by city into cityGroup
+                                       let matchesDrawCount = cityGroup.Count()
+                                       orderby matchesDrawCount descending
+                                       select new
+                                       {
+                                           CityId = cityGroup.Key.Id,
+                                           CityName = cityGroup.Key.Name,
+                                           MatchesDraw = matchesDrawCount
+                                       };
+
+            int maxDrawMatches = citiesWithMoreDrawMatches.First().MatchesDraw;
+            Console.WriteLine("Cities with more draws:");
+            foreach (var result in citiesWithMoreDrawMatches)
+            {
+                if (result.MatchesDraw == maxDrawMatches)
+                {
+                    Console.WriteLine("CityInfo -> Id: {0} Name: {1} with {2} matches draw", result.CityId, result.CityName,
+                    result.MatchesDraw);
+                }
+            }
+        }
     }
 }

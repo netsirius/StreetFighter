@@ -18,6 +18,7 @@ namespace Main
 
             StreetFighterResult results = new StreetFighterResult(players, cities, matches);
             results.CityWithMoreMatches();
+            results.CitiesWithMoreDrawMatches();
             Console.ReadLine();
         }
 
