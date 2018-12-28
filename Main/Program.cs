@@ -19,6 +19,13 @@ namespace Main
             StreetFighterResult results = new StreetFighterResult(players, cities, matches);
             results.CityWithMoreMatches();
             results.CitiesWithMoreDrawMatches();
+            results.BestPlayerByWinRatio();
+            results.ComputePlayersClassification();
+            results.PlayerWithMoreWins();
+            results.ComputeCitiesClassification();
+            results.PlayerWithWorseStreak();
+            results.PlayerWithNConsecuitiveWins();
+            results.UnbeatenPlayersForCIty();
             Console.ReadLine();
         }
 
